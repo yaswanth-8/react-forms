@@ -5,6 +5,7 @@ const FormFunctionComponent = () => {
     name: "",
     email: "",
     password: "",
+    gender: "",
   });
 
   const handleChange = (event) => {
@@ -20,17 +21,14 @@ const FormFunctionComponent = () => {
     console.log(formData);
   };
 
-  const { name, email, password } = formData;
-
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Form in Function Component</h1>
       <div>
         <label>Name:</label>
         <input
           type="text"
           name="name"
-          value={name}
+          value={formData.name}
           onChange={handleChange}
           required
         />
@@ -41,7 +39,7 @@ const FormFunctionComponent = () => {
         <input
           type="email"
           name="email"
-          value={email}
+          value={formData.email}
           onChange={handleChange}
           required
         />
@@ -52,12 +50,26 @@ const FormFunctionComponent = () => {
         <input
           type="password"
           name="password"
-          value={password}
+          value={formData.password}
           onChange={handleChange}
           pattern=".{6,}"
           title="Password must be at least 6 characters long"
           required
         />
+      </div>
+
+      <div>
+        <label>Gender:</label>
+        <select
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
       </div>
 
       <button type="submit">Submit</button>

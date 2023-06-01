@@ -7,11 +7,11 @@ class FormClassComponent extends Component {
       name: "",
       email: "",
       password: "",
+      gender: "",
     };
   }
 
   handleChange = (event) => {
-    console.log(event.target);
     const { name, value } = event.target;
     this.setState({
       [name]: value,
@@ -24,11 +24,10 @@ class FormClassComponent extends Component {
   };
 
   render() {
-    const { name, email, password } = this.state;
+    const { name, email, password, gender } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>Form in Class Component</h1>
         <div>
           <label>Name:</label>
           <input
@@ -62,6 +61,20 @@ class FormClassComponent extends Component {
             title="Password must be at least 6 characters long"
             required
           />
+        </div>
+
+        <div>
+          <label>Gender:</label>
+          <select
+            name="gender"
+            value={gender}
+            onChange={this.handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </div>
 
         <button type="submit">Submit</button>
