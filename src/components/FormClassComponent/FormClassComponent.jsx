@@ -28,6 +28,7 @@ class FormClassComponent extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <h1>Form in Class Component</h1>
         <div>
           <label>Name:</label>
           <input
